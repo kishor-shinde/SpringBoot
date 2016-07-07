@@ -14,7 +14,8 @@ import com.peoplefy.repository.EmployeeRepo;
 @RestController
 public class GreetingController {
 
-	
+	@Autowired
+	EmployeeRepo repo;
 	
     @RequestMapping("/greeting")
     public String greeting(@RequestParam("name") String name) {
@@ -34,6 +35,8 @@ public class GreetingController {
     	ed.setName("Employee2");
     	ed.setId(2);
     	list.add(ed);
-    	return list;
+    	repo.save(ed);
+    	
+    	return repo.findAll();
     }
 }
