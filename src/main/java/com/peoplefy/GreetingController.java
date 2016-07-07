@@ -31,6 +31,7 @@ public class GreetingController {
     	ed.setName("Employee1");
     	ed.setId(1);
     	list.add(ed);
+    	repo.save(ed);
     	ed.setEmail("employee2@gmail.com");
     	ed.setName("Employee2");
     	ed.setId(2);
