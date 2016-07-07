@@ -3,27 +3,30 @@ package com.peoplefy;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.peoplefy.domain.entity.EmployeeDetails;
+import com.peoplefy.domain.entity.EmployeeDetailss;
+import com.peoplefy.repository.EmployeeRepo;
 
 @RestController
 public class GreetingController {
 
+	@Autowired
+	EmployeeRepo repo;
+	
     @RequestMapping("/greeting")
     public String greeting(@RequestParam("name") String name) {
         return "Hello " + name;
     }
 
     @RequestMapping("/employees")
-    public List<EmployeeDetails> listEmployeea()
+    public List<EmployeeDetailss> listEmployeea()
     {
-    	ArrayList<EmployeeDetails> list=new ArrayList<EmployeeDetails>();
-    	EmployeeDetails ed=new EmployeeDetails();
+    	ArrayList<EmployeeDetailss> list=new ArrayList<EmployeeDetailss>();
+    	EmployeeDetailss ed=new EmployeeDetailss();
     	ed.setEmail("employee1@gmail.com");
     	ed.setName("Employee1");
     	ed.setId(1);
