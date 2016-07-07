@@ -14,8 +14,7 @@ import com.peoplefy.repository.EmployeeRepo;
 @RestController
 public class GreetingController {
 
-	@Autowired
-	EmployeeRepo repo;
+	
 	
     @RequestMapping("/greeting")
     public String greeting(@RequestParam("name") String name) {
